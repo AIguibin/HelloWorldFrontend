@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onclick</title>
+    <style>
+        *{
+            margin: 0;
+        }
+    </style>
+    <script>
+        function buttonclick() {
+            console.log("行内click事件onclick='buttonclick()'")
+        }
+        //或者是
+        document.getElementById("onclick").onclick = function () {
+            console.log(`我是通过js获取元素的click事件
+            document.getElementById('onclick').onclick = function () {}`)
+        }
+    </script>
+</head>
+<body>
+<div>
+    <button id="onclick" onclick="buttonclick()"></button>
+</div>
+</body>
+</html>
