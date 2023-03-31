@@ -5,9 +5,11 @@
  */
 // 引入组件，这里引的是组件的index.js出口文件;
 import Input from './input/index.js';
+import Popover from './popover/index.js';
 // 把所有组件放在数组里
 const components = [
     Input,
+    Popover
 ];
 // 提供一个install方法
 const install = function (Application) {
@@ -22,6 +24,7 @@ const install = function (Application) {
 export default {
     version: '1.0.0',
     install,
-    Input
+    Input,
+    Popover
 };
 

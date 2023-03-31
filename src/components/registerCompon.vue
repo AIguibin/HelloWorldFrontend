@@ -8,11 +8,9 @@
 </template>
 
 <script>
-    export default {
-        name: "registerCompon"
-    }
+export default {
+    name: "registerCompon"
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

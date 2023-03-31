@@ -5,7 +5,7 @@
  */
 export default [
     {
-        path: '/',
+        path: '/home',
         name: 'HomeView',
         component: () => import('@/pages/HomeView.vue')
     },

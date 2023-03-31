@@ -5,14 +5,16 @@
 */
 
 <script setup>
-    import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+import HeadCompon from "@/components/menuCompon/HeadCompon.vue"
 </script>
 <template>
-    <div>aaa</div>
+    <div>
+        <HeadCompon></HeadCompon>
+        <div>aaa</div>
+    </div>
 </template>
 
 
 
-<style scoped>
-
-</style>
+<style scoped></style>
