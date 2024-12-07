@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>aiguibin-webpack-vue</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>aiguibin-webpack-vue</title>
+  <style>
+    html {
+      /* 默认字体大小 */
+      font-size: 16px;
+    }
+
+    /* 响应式调整根元素字体大小 */
+    @media (max-width: 768px) {
+      html {
+        font-size: 14px;
+        /* 平板 */
+      }
+    }
+
+    @media (max-width: 480px) {
+      html {
+        font-size: 12px;
+        /* 手机 */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
 </html>
