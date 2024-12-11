@@ -9,7 +9,6 @@ if (!(window && window.Vue !== undefined)) {
   window.Vue = Vue;
 }
 const install = function (Vue) {
-  debugger
   for (component in components) {
     Vue.component(component.name, component)
   }

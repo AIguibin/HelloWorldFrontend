@@ -12,10 +12,10 @@
   "dependencies": {
     "axios": "^0.27.2",
     "echarts": "^5.4.0",
-    "element-ui": "^2.15.10",
-    "vue": "^2.7.10",
+    "element-ui": "^2.15.14",
+    "vue": "^2.7.17",
     "vue-router": "^3.0.1",
-    "vuex": "^4.0.2"
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

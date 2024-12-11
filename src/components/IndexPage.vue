@@ -15,35 +15,31 @@ export default {
     }
   },
   mounted() {
-    let obj ={key:""}
-    console.log(Object.keys(obj).length,999999999)
+    console.log("----------------页面进来进行H5方法注册，以备Android端随时调用-----------------");
+    this.$bridge.registerHandler("Android2H5",this.H5JSHandle)
+    console.log("----------------注册一个名字为Android2H5对应的H5JSHandle，等待Android调用-----------------");
   },
   methods: {
+    H5JSHandle(handleName,data,callback){
+      console.log("Android使用callHandler('Android2H5',data,H5处理完逻辑回调Android的回调方法)调H5")
+      console.log("因为我们注册过，所以就会找到名字对应的方法，并且执行")
+      console.log("执行完成后，如果给了回调方法，就执行回调")
+      if(callback){
+        callback("回调给Android的参数，我是从H5回调回来的数据");
+      }
+    }
     btnClick() {
       let _this = this;
-
-    var time=  setTimeout(() => {
-        console.log("111111")
-      }, 1000);
-      setTimeout(() => {
-        console.log(time,"222222")
-        console.log("333333")
-      }, 3000);
-
-
-      _this.$http.request({
-        url: 'http:127.0.0.1:8999/geturl'
-      }).then(res => {
-        const a = [{ a: 1 }, { b: 1 }]
-        const b = [{ a: 1 }, { b: 1 }]
-        const c = a.concat(b)
-
-        // 无法去重
-        const e = [...new Set(c)]
-
-
-        // 开始去重
-        const d = [...new Set(c.map(t => JSON.stringify(t)))].map(s => JSON.parse(s))
+      const data = JSON.stringify({
+        action: 'LOGIN',
+        username: "H5页面上送的用户名",
+        password: "H5页面上送的用户密码"
+      });
+      debugger
+      console.log("---------------------------------H5调用Android方法开始---------------------------------------")
+      _this.$bridge.callHandler('login', data, function (responseData) {
+        console.log("---------------------------------回调进来---------------------------------------")
+        console.log("Android回调H5页面数据",JSON.parse(responseData))
       })
     }
   },
