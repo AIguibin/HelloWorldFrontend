@@ -3,19 +3,21 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VConsole from 'vconsole';
 import ElementUI from 'element-ui'
 import * as echarts from 'echarts';
 import 'element-ui/lib/theme-chalk/index.css';
-import bridge from './common/public/bridge.js';
+import Bridge from './common/public/bridge.js';
 import service from './common/public/request.js';
-
 
 Vue.config.productionTip = false
 
+new VConsole();
+Vue.use(Bridge);
 Vue.use(ElementUI);
 Vue.prototype.$http = service;
-Vue.prototype.$bridge = bridge;
 Vue.prototype.$echarts = echarts;
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

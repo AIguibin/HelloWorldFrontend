@@ -85,6 +85,9 @@ var VueBridgeWebView = {
 
     // config
     bridgeConfig.silent = Vue.config.silent
+
+    // Initialize handlers container for batch registration
+    this.handlers = {};
   },
 
   config: function (bridgeWebViewDelay, silent) {
@@ -140,6 +143,38 @@ var VueBridgeWebView = {
 
     } else {
       console.log("don't built-in WebView invoking ", name, '{callHandler}')
+    }
+  },
+
+
+  getHandler(handlerName) {
+    return this.handlers[handlerName] || null;
+  },
+
+  removeHandler(handlerName) {
+    delete this.handlers[handlerName];
+    // 从 $bridge 中移除处理器
+    // 注意: 这取决于 $bridge 是否提供这样的功能
+  },
+
+  clearHandlers() {
+    this.handlers = {};
+    // 清空 $bridge 中的所有处理器
+    // 注意: 这取决于 $bridge 是否提供这样的功能
+  },
+
+  // 添加一个或多个处理器到批量列表中
+  addHandlers(handlers) {
+    Object.assign(this.handlers, handlers);
+  },
+
+  // 注册所有添加的处理器
+  registerAll() {
+    for (const name in this.handlers) {
+      if (this.handlers.hasOwnProperty(name)) {
+        const handler = this.handlers[name];
+        this.registerHandler(name, handler);
+      }
     }
   }
 }

@@ -27,7 +27,7 @@ export default {
       if(callback){
         callback("回调给Android的参数，我是从H5回调回来的数据");
       }
-    }
+    },
     btnClick() {
       let _this = this;
       const data = JSON.stringify({
@@ -35,7 +35,6 @@ export default {
         username: "H5页面上送的用户名",
         password: "H5页面上送的用户密码"
       });
-      debugger
       console.log("---------------------------------H5调用Android方法开始---------------------------------------")
       _this.$bridge.callHandler('login', data, function (responseData) {
         console.log("---------------------------------回调进来---------------------------------------")
