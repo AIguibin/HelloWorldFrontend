@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <el-button @click="btnClick">按钮</el-button>
+    <el-button @click="launchTansun">launchTansunApp</el-button>
     <echarts-test></echarts-test>
   </div>
 </template>
@@ -39,6 +40,12 @@ export default {
       _this.$bridge.callHandler('login', data, function (responseData) {
         console.log("---------------------------------回调进来---------------------------------------")
         console.log("Android回调H5页面数据",JSON.parse(responseData))
+      })
+    },
+    launchTansun(){
+      this.$bridge.callHandler('launchTansun',{message:"APP跳转测试"},function(responseData){
+        console.log("---------------------------------打开其他APP后回调进来---------------------------------------")
+        console.log("打开其他APPAndroid回调H5页面数据",JSON.parse(responseData))
       })
     }
   },
